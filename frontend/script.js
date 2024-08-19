@@ -1,4 +1,4 @@
-const apiUrl = 'http://127.0.0.1:5000';
+const apiUrl = 'https://product-sorter.onrender.com';
 
 async function adicionarProduto() {
     const nome = document.getElementById('nomeProduto').value;
