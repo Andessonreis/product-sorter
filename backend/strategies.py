@@ -1,4 +1,4 @@
-from models import Product
+from backend.models import Product
 
 class IStrategy:
     def sort(self, products):
