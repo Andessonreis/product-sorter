@@ -3,12 +3,17 @@ from flask_cors import CORS
 from models import Product
 from strategies import ByName, ByRating, ByPrice
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../frontend', static_url_path='/')
 CORS(app)
 
+# Rota para servir o frontend
 @app.route('/')
 def index():
-    return send_from_directory(app.static_folder, 'frontend/index.html')
+    return send_from_directory(app.static_folder, 'index.html')
+
+@app.route('/<path:path>')
+def static_file(path):
+    return send_from_directory(app.static_folder, path)
 
 products = []  # Lista global de produtos
 
