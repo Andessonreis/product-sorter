@@ -1,10 +1,14 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from models import Product
 from strategies import ByName, ByRating, ByPrice
 
 app = Flask(__name__)
 CORS(app)
+
+@app.route('/')
+def index():
+    return send_from_directory(app.static_folder, 'frontend/index.html')
 
 products = []  # Lista global de produtos
 
